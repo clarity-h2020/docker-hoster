@@ -1,0 +1,18 @@
+version: '3.6'
+     
+services:
+  hoster:
+    container_name: ${COMPOSE_PROJECT_NAME}
+    image: dvdarias/docker-hoster
+    restart: always
+    volumes:
+      - type: bind
+        source: /etc/hosts
+        target: /tmp/hosts 
+      - type: bind
+        source: /var/run/docker.sock
+        target: /tmp/run/docker.sock
+networks:
+  default:
+    external:
+      name: ${NETWORK:-clarity}
