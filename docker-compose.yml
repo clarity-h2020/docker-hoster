@@ -11,7 +11,7 @@ services:
         target: /tmp/hosts 
       - type: bind
         source: /var/run/docker.sock
-        target: /tmp/run/docker.sock
+        target: /tmp/docker.sock
 networks:
   default:
     external:
